@@ -1,1 +1,61 @@
-<p>login works!</p>
+<div class="w-75 mx-auto py-4">
+  <h4 class="mb-4">Log in Now :</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email :</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        formControlName="email"
+        [class.error]="
+          loginForm.get('email')?.errors && loginForm.get('email')?.touched
+        "
+      />
+      <div *ngIf="loginForm.get('email')?.errors" class="mt-1 error-label">
+        <div
+          *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched"
+        >
+          Email is required
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password :</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        id="password"
+        formControlName="password"
+        [class.error]="
+          loginForm.get('password')?.errors &&
+          loginForm.get('password')?.touched
+        "
+      />
+      <div *ngIf="loginForm.get('password')?.errors" class="mt-1 error-label">
+        <div
+          *ngIf="loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched"
+        >
+          Password is required
+        </div>
+        <div
+          *ngIf="loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.touched"
+        >
+          Please Enter a valid password
+        </div>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn bg-main text-white d-block ms-auto"
+      [disabled]="loginForm.invalid"
+    >
+    <span *ngIf="!isLoading">Log in</span>
+    <i class="fas fa-spinner fa-spin" *ngIf="isLoading"></i>
+    </button>
+  </form>
+</div>

@@ -5,6 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { User } from '../models/user.model';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -13,8 +16,13 @@ import {
 })
 export class RegisterComponent {
   registerForm!: FormGroup;
+  isLoading: boolean = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private _AuthService: AuthService,
+    private Router: Router
+  ) {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
@@ -38,7 +46,20 @@ export class RegisterComponent {
     return null;
   }
 
-  onRegister(form: FormGroup) {
-    console.log(form.value);
+  onRegister(user: User) {
+    console.log(user);
+    this.isLoading = true;
+    this._AuthService.register(user).subscribe({
+      next: (response) => {
+        if (response.message === 'success') {
+          this.isLoading = false;
+          this.Router.navigate(['/login']);
+        }
+      },
+      error: (err) => {
+        this.isLoading = false;
+        console.log(err.error.errors.msge);
+      },
+    });
   }
 }

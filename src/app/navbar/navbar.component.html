@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container">
-    <img src="assets/freshcart-logo.svg" alt="">
+    <img src="assets/freshcart-logo.svg" alt="" />
     <button
       class="navbar-toggler d-lg-none"
       type="button"
@@ -13,7 +13,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+      <ul class="navbar-nav me-auto mt-2 pt-1 mt-lg-0" *ngIf="isLoggedin">
         <li class="nav-item">
           <a class="nav-link active" routerLink="home" aria-current="page"
             >Home <span class="visually-hidden">(current)</span></a
@@ -49,18 +49,18 @@
           <i class="fab fa-linkedin mx-2"></i>
           <i class="fab fa-youtube mx-2"></i>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="" aria-current="page"
+        <li class="nav-item" *ngIf="!isLoggedin">
+          <a class="nav-link active" routerLink="login" aria-current="page"
             >Log in <span class="visually-hidden">(current)</span></a
           >
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="home" aria-current="page"
+        <li class="nav-item" *ngIf="!isLoggedin">
+          <a class="nav-link active" routerLink="register" aria-current="page"
             >Register <span class="visually-hidden">(current)</span></a
           >
         </li>
-        <li class="nav-item d-flex align-items-center">
-          <span class="nav-link active">Log out </span>
+        <li class="nav-item d-flex align-items-center" *ngIf="isLoggedin">
+          <span class="nav-link active cursor-pointer" (click)="onLogout()">Log out </span>
         </li>
       </ul>
     </div>
