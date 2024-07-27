@@ -1,1 +1,28 @@
-<p>home works!</p>
+><app-main-slider></app-main-slider>
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-2">
+    <div class="product py-4 px-2">
+      <a [routerLink]="['/productdetails', product._id]">
+        <img [src]="product.imageCover" [alt]="product.title" class="w-100" />
+        <span class="font-sm text-main fw-bold">{{
+          product.category.name
+        }}</span>
+        <h3 class="h6 fw-bolder">
+          {{ product.title.split(" ").slice(0, 3).join(" ") }}
+        </h3>
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="text-muted font-sm fw-bold">{{
+            product.price | currency : "EUR"
+          }}</span>
+          <div>
+            <i class="fas fa-star rating-color"></i>
+            <span class="text-muted fw-bold font-sm">
+              {{ product.ratingsAverage }}
+            </span>
+          </div>
+        </div>
+        <button class="btn bg-main text-white w-100">+ Add to cart</button>
+      </a>
+    </div>
+  </div>
+</div>

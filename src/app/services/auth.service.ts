@@ -10,10 +10,14 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private _baseURl = environment.apiUrl;
+  private _baseUrl = environment.apiUrl;
   userData = new BehaviorSubject(null);
 
-  constructor(private httpCient: HttpClient, private _Router: Router) {}
+  constructor(private httpCient: HttpClient, private _Router: Router) {
+    if (localStorage.getItem('userToken') !== null) {
+      this.decodeUserData();
+    }
+  }
 
   decodeUserData() {
     let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
@@ -27,10 +31,10 @@ export class AuthService {
   }
 
   register(userData: User): Observable<any> {
-    return this.httpCient.post(`${this._baseURl}/auth/signup`, userData);
+    return this.httpCient.post(`${this._baseUrl}/auth/signup`, userData);
   }
 
   login(userData: UserLogin): Observable<any> {
-    return this.httpCient.post(`${this._baseURl}/auth/signin`, userData);
+    return this.httpCient.post(`${this._baseUrl}/auth/signin`, userData);
   }
 }

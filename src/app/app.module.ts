@@ -16,6 +16,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainSliderComponent } from './main-slider/main-slider.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     RegisterComponent,
     NotFoundComponent,
+    ProductDetailsComponent,
+    MainSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
