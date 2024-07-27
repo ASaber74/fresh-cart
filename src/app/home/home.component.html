@@ -1,6 +1,17 @@
-><app-main-slider></app-main-slider>
+<app-main-slider></app-main-slider>
+<app-categories-slider />
+
+<div class="py-4 text-center">
+  <input
+    type="text"
+    class="form-control bg-light w-75 mx-auto"
+    placeholder="Search for products ..."
+    [(ngModel)]="searchTerm"
+  />
+</div>
+
 <div class="row">
-  <div *ngFor="let product of products" class="col-md-2">
+  <div *ngFor="let product of products | search : searchTerm" class="col-md-2">
     <div class="product py-4 px-2">
       <a [routerLink]="['/productdetails', product._id]">
         <img [src]="product.imageCover" [alt]="product.title" class="w-100" />

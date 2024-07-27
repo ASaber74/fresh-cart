@@ -18,4 +18,8 @@ export class ProductsService {
   getSpecificProduct(id: string): Observable<any> {
     return this.httpCient.get(`${this._baseUrl}/products/${id}`);
   }
+
+  getCategories(): Observable<any> {
+    return this.httpCient.get(`${this._baseUrl}/categories`);
+  }
 }

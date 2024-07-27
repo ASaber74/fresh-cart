@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container">
-    <img src="assets/freshcart-logo.svg" alt="" />
+    <img src="assets/freshcart-logo.svg" alt="freshcart-logo" class="cursor-pointer" routerLink="/home"/>
     <button
       class="navbar-toggler d-lg-none"
       type="button"
@@ -42,12 +42,12 @@
       </ul>
       <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
         <li class="nav-item d-flex align-items-center mt-1">
-          <i class="fab fa-instagram mx-2"></i>
-          <i class="fab fa-facebook mx-2"></i>
-          <i class="fab fa-tiktok mx-2"></i>
-          <i class="fab fa-twitter mx-2"></i>
-          <i class="fab fa-linkedin mx-2"></i>
-          <i class="fab fa-youtube mx-2"></i>
+          <i class="fab fa-instagram mx-2 cursor-pointer"></i>
+          <i class="fab fa-facebook mx-2 cursor-pointer"></i>
+          <i class="fab fa-tiktok mx-2 cursor-pointer"></i>
+          <i class="fab fa-twitter mx-2 cursor-pointer"></i>
+          <i class="fab fa-linkedin mx-2 cursor-pointer"></i>
+          <i class="fab fa-youtube mx-2 cursor-pointer"></i>
         </li>
         <li class="nav-item" *ngIf="!isLoggedin">
           <a class="nav-link active" routerLink="login" aria-current="page"
@@ -60,7 +60,9 @@
           >
         </li>
         <li class="nav-item d-flex align-items-center" *ngIf="isLoggedin">
-          <span class="nav-link active cursor-pointer" (click)="onLogout()">Log out </span>
+          <span class="nav-link active cursor-pointer" (click)="onLogout()"
+            >Log out
+          </span>
         </li>
       </ul>
     </div>

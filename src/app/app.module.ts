@@ -13,13 +13,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainSliderComponent } from './main-slider/main-slider.component';
+import { CategoriesSliderComponent } from './categories-slider/categories-slider.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
     NotFoundComponent,
     ProductDetailsComponent,
     MainSliderComponent,
+    CategoriesSliderComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,7 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

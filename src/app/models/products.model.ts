@@ -4,13 +4,6 @@ export interface Products {
   data: Product[];
 }
 
-interface Metadata {
-  currentPage: number;
-  numberOfPages: number;
-  limit: number;
-  nextPage: number;
-}
-
 export interface Product {
   sold: number;
   images: string[];
@@ -39,6 +32,34 @@ export interface Product {
   createdAt: string;
   updatedAt: string;
   id: string;
+}
+
+export interface Categories {
+  results: string;
+  metadata: CatMetadata;
+  data: Category[];
+}
+
+export interface Category {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface CatMetadata {
+  currentPage: number;
+  numberOfPages: number;
+  limit: number;
+}
+
+interface Metadata {
+  currentPage: number;
+  numberOfPages: number;
+  limit: number;
+  nextPage: number;
 }
 
 interface SubCategory {

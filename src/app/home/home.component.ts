@@ -8,6 +8,7 @@ import { Product } from '../models/products.model';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  searchTerm: string = '';
   products: Product[] = [];
   constructor(private _ProductsService: ProductsService) {}
   ngOnInit(): void {
