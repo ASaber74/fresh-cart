@@ -32,8 +32,13 @@
             </span>
           </div>
         </div>
-        <button class="btn bg-main text-white w-100">+ Add to cart</button>
       </a>
+      <button
+        class="btn bg-main text-white w-100"
+        (click)="addToCart(product._id)"
+      >
+        + Add to cart
+      </button>
     </div>
   </div>
 </div>
